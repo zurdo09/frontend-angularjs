@@ -25,6 +25,7 @@ sudo bower install
 
 ## i/o
 
+### Visita Mi pagina: http://zurdo09.github.io/frontend-angularjs.
 
 
 ## Reflection Q's
