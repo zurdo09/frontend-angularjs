@@ -25,9 +25,8 @@ sudo bower install
 
 ## i/o
 
-### Visita Mi pagina: http://zurdo09.github.io/frontend-angularjs.
-
-
 ## Reflection Q's
 1. What is the general organization of AngularJS projects?
 2. What do you think AngularJS is doing in the background?
+
+### Visita Mi pagina: http://zurdo09.github.io/frontend-angularjs.
