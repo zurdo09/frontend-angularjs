@@ -1,4 +1,67 @@
-<!--
-Usa este archivo para tu proyecto. No olvides hacer
-la estructura correta y guardar TODO tu CSS en el archivo styles.css
- -->
+<!DOCTYPE html>
+<html ng-app="Canciones">
+<head>
+	<title>Angularjs</title>
+	<!-- Codigo utf-8 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- CSS y Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!-- Angularjs y javascript-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.2.5/i18n/angular-locale_es-es.js"></script>
+	<script src="js/script.js"></script>
+	<!-- Icono de Angularjs -->
+	<link rel="icon" href="https://books.ninja-squad.com/public/images/angularjs-logo.png">
+
+</head>
+<body ng-controller="CancionesController">
+	<div class="container">
+		<h1>Frontend-Agularjs</h1>
+		<hr/>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+					<input type="text" class="form-control" placeholder="Buscar Cancion" ng-model="buscar">
+				</div>
+			</div>
+			<div class="panel-body table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr >
+	 						<th>
+	 							<a href="" style="cursor: pointer" ng-click="ordenarPor('name')">Canción</a>
+	 							<span class="glyphicon glyphicon-cd" style="cursor: pointer" ng-click="ordenarPor('-name')"></span> 
+	 						</th>
+	 						<th>
+	 							<a href="" style="cursor: pointer" ng-click="ordenarPor('artist.name')">Artista</a>
+	 							<span class="glyphicon glyphicon-user" style="cursor: pointer" ng-click="ordenarPor('-artist.name')"></span>
+	 						</th>
+	 						<th>
+	 							<a href="" style="cursor: pointer" ng-click="ordenarPor('duration')">Duración</a>
+	 							<span class="glyphicon glyphicon-time" style="cursor: pointer" ng-click="ordenarPor('-duration')"></span>
+	 						</th>
+	 						<th>Playcount</th>
+	 						<th>Listeners</th>
+	 						<th>Albúm</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="music in datos | orderBy:ordenSeleccionado | filter:buscar" >
+							<td>{{music.name}}</td>
+							<td>{{music.artist.name}}</td>
+							<td>{{music.duration * 1000 | date:'mm:ss'}}</td>
+							<td>{{music.playcount}}</td>
+							<td>{{music.listeners}}</td>
+							<td ng-show="{{music.image[1]}}"><img ng-src="{{music.image[1] | Url}}"></td>
+							<td ng-show="!{{music.image[1]}}"><img src="instagram-icon-01.png"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
